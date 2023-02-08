@@ -20,10 +20,9 @@ forecast_days = st.slider('Days to display:', min_value=1, max_value=5,
                                'days to forecast')
 forecast_type = st.selectbox('Select forecast type: ',
                              ('Temperature', 'Conditions'))
-st.header(f'{location} {forecast_type} for the next {forecast_days} days')
-
 
 if location:
+    st.header(f'{location} {forecast_type} for the next {forecast_days} days')
     try:
         # get the necessary data
         forecast_data = get_forecast(location,

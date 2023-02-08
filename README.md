@@ -29,6 +29,9 @@ After installing all requirements, a local streamlit instance can be started
 by entering 'streamlit run main.py' into a terminal from the WeatherForecaster
 root directory.
 
+Alternatively, the web application can be accessed directly from streamlit 
+at: https://deeweinacht-weatherforecaster-webapp-python-main-wvb0at.streamlit.app/
+
 To receive a forecast:
 1. Enter a city name in the 'Location' box
 2. Select a temperature scale using the radio buttons
