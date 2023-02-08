@@ -1,6 +1,7 @@
 # WeatherForecaster-WebApp-Python
 
-This web application provides a visual dashboard of the local weather forecast.
+This web application provides a visual dashboard of the upcoming weather for
+any given city.
 
     Copyright (C) 2023  Dee Weinacht
 
@@ -17,19 +18,25 @@ This web application provides a visual dashboard of the local weather forecast.
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+**Description:**
+This app makes use of the openweathermap API (www.openweathermap.org) to 
+provide a weather forecast for up to the next 5 days in 3 hour intervals.
+The interface is provided with a streamlit web application.
+
 
 **Using the app:**  
+After installing all requirements, a local streamlit instance can be started 
+by entering 'streamlit run main.py' into a terminal from the WeatherForecaster
+root directory.
 
-Insert the Excel documents you wish to generate invoices from into the 
-'sales' folder. They should be in the same format as the example Excel documents
-with the following column names: 'product_id', 'product_name', 'amount_purchased',
-'price_per_unit', 'total_price'.
-Run the script and a PDF invoice will be generated for each Excel document
-in the 'sales' folder. The generated PDFs will be saved in the 'invoices'
-folder with the same file names as the sales Excel documents.
+To receive a forecast:
+1. Enter a city name in the 'Location' box
+2. Select a temperature scale using the radio buttons
+3. Select the number of days to forecast, using the slider
+4. Select the forecast type from the dropdown, either 'Temperature' or 'Conditions.'
     
 
 **Dependencies:**
-- pandas 1.4.3 licensed with BSD 3-Clause
-- openpyxl 3.1.0 licensed with MIT/Expat
-- pyfpdf 1.7.2 licensed with LGPL-3.0
+- plotly v.5.13.0 licensed with MIT
+- requests v.2.28.2 licensed with Apache 2.0
+- streamlit v.1.17.0 licensed with Apache 2.0

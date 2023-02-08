@@ -1,5 +1,6 @@
 """
-
+This web application provides a visual dashboard of the upcoming weather for
+any given city.
 """
 
 import streamlit as st
@@ -12,7 +13,7 @@ import datetime
 st.set_page_config(page_title='Weather Forecaster')
 st.title('Upcoming Weather')
 location = st.text_input('Location: ', help='Enter a city name')
-temp_scale = st.radio('Temperature Scale', ('Celsius', 'Fahrenheit'),
+temp_scale = st.radio('Temperature scale:', ('Celsius', 'Fahrenheit'),
                       key='scale', horizontal=True)
 forecast_days = st.slider('Days to display:', min_value=1, max_value=5,
                           help='Slide to select the number of '
@@ -24,11 +25,13 @@ st.header(f'{location} {forecast_type} for the next {forecast_days} days')
 
 if location:
     try:
+        # get the necessary data
         forecast_data = get_forecast(location,
                                      days=forecast_days, scale=temp_scale)
         dates = [datetime.datetime.fromisoformat(dic['dt_txt'])
                  for dic in forecast_data]
         match forecast_type:
+            # display a graph of the temperatures over a given time period
             case 'Temperature':
                 temperature_data = [dic['main']['temp']
                                     for dic in forecast_data]
@@ -37,6 +40,7 @@ if location:
                                       'y': f'Temperature ({temp_scale})'})
                 st.plotly_chart(fig)
 
+            # display a series of weather conditions over a given time period
             case 'Conditions':
                 images_dict = {'Clear': 'images/clear.png',
                                'Clouds': 'images/cloudy.png',
